@@ -1,0 +1,714 @@
+[gd_scene format=3 uid="uid://o2m1qt7a0bj2"]
+
+[ext_resource type="Script" uid="uid://b3fajqyf5p74y" path="res://scripts/Main.gd" id="1"]
+[ext_resource type="Script" uid="uid://dawicsi2f6ix4" path="res://scripts/ScreenMenu.gd" id="2"]
+[ext_resource type="Script" uid="uid://cwsjweic3sqht" path="res://scripts/ScreenProfiles.gd" id="3"]
+[ext_resource type="Script" uid="uid://dyhyvrdjyec7q" path="res://scripts/ScreenGame.gd" id="4"]
+[ext_resource type="Script" uid="uid://c7y73vx1wf345" path="res://scripts/ScreenGameOver.gd" id="5"]
+[ext_resource type="Script" uid="uid://csf3pv3er1v1k" path="res://scripts/ScreenSettings.gd" id="6"]
+[ext_resource type="Script" uid="uid://ck5c1x7q3d2hj" path="res://scripts/ScreenLeaderboard.gd" id="7"]
+[ext_resource type="Script" uid="uid://cbhbtgpknrbxy" path="res://scripts/ScreenHistory.gd" id="8"]
+
+[node name="Main" type="Node" unique_id=1529121202]
+script = ExtResource("1")
+
+[node name="Screens" type="Control" parent="." unique_id=1756085376]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScreenMenu" type="Control" parent="Screens" unique_id=1049411825]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2")
+
+[node name="BG" type="ColorRect" parent="Screens/ScreenMenu" unique_id=793991804]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.05, 0.12, 1)
+
+[node name="VBox" type="VBoxContainer" parent="Screens/ScreenMenu" unique_id=316500881]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="LblTitle" type="Label" parent="Screens/ScreenMenu/VBox" unique_id=1321570160]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8, 0.2, 1)
+theme_override_font_sizes/font_size = 36
+text = "ELEMENTAL CLASH"
+horizontal_alignment = 1
+
+[node name="LblSubtitle" type="Label" parent="Screens/ScreenMenu/VBox" unique_id=205121707]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.8, 1)
+theme_override_font_sizes/font_size = 14
+text = "Juego de cartas para 2 jugadores"
+horizontal_alignment = 1
+
+[node name="Sep1" type="HSeparator" parent="Screens/ScreenMenu/VBox" unique_id=1231535998]
+layout_mode = 2
+
+[node name="LblWeather" type="Label" parent="Screens/ScreenMenu/VBox" unique_id=1989637318]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Clima: cargando..."
+horizontal_alignment = 1
+
+[node name="Sep2" type="HSeparator" parent="Screens/ScreenMenu/VBox" unique_id=2117111119]
+layout_mode = 2
+
+[node name="BtnPlay" type="Button" parent="Screens/ScreenMenu/VBox" unique_id=764036136]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "JUGAR"
+
+[node name="BtnResume" type="Button" parent="Screens/ScreenMenu/VBox" unique_id=152951880]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "CONTINUAR PARTIDA"
+
+[node name="BtnLeaderboard" type="Button" parent="Screens/ScreenMenu/VBox" unique_id=1049072194]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "TABLA DE LIDERES"
+
+[node name="BtnSettings" type="Button" parent="Screens/ScreenMenu/VBox" unique_id=1304810856]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "CONFIGURACION"
+
+[node name="LblCredits" type="Label" parent="Screens/ScreenMenu/VBox" unique_id=1350067823]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.4, 0.5, 1)
+theme_override_font_sizes/font_size = 10
+text = "Elemental Clash - Proyecto Final Godot"
+horizontal_alignment = 1
+
+[node name="ScreenProfiles" type="Control" parent="Screens" unique_id=1581321290]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3")
+
+[node name="BG" type="ColorRect" parent="Screens/ScreenProfiles" unique_id=322189242]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.05, 0.12, 1)
+
+[node name="VBox" type="VBoxContainer" parent="Screens/ScreenProfiles" unique_id=1738999868]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="LblTitle" type="Label" parent="Screens/ScreenProfiles/VBox" unique_id=784562716]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8, 0.2, 1)
+theme_override_font_sizes/font_size = 24
+text = "PERFILES DE JUGADOR"
+horizontal_alignment = 1
+
+[node name="LblInfo" type="Label" parent="Screens/ScreenProfiles/VBox" unique_id=1863869068]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.9, 0.7, 1)
+theme_override_font_sizes/font_size = 13
+text = "Ingresa los nombres para comenzar"
+horizontal_alignment = 1
+
+[node name="HBox" type="HBoxContainer" parent="Screens/ScreenProfiles/VBox" unique_id=1162552780]
+layout_mode = 2
+
+[node name="VBoxP1" type="VBoxContainer" parent="Screens/ScreenProfiles/VBox/HBox" unique_id=1020837220]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LblP1" type="Label" parent="Screens/ScreenProfiles/VBox/HBox/VBoxP1" unique_id=440193530]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.8, 1, 1)
+text = "Jugador 1 (WASD + F)"
+horizontal_alignment = 1
+
+[node name="EditP1" type="LineEdit" parent="Screens/ScreenProfiles/VBox/HBox/VBoxP1" unique_id=2058756659]
+layout_mode = 2
+text = "Jugador 1"
+placeholder_text = "Nombre J1"
+
+[node name="BtnHistP1" type="Button" parent="Screens/ScreenProfiles/VBox/HBox/VBoxP1" unique_id=960531304]
+layout_mode = 2
+text = "Ver Historial P1"
+
+[node name="Sep" type="VSeparator" parent="Screens/ScreenProfiles/VBox/HBox" unique_id=324077698]
+layout_mode = 2
+
+[node name="VBoxP2" type="VBoxContainer" parent="Screens/ScreenProfiles/VBox/HBox" unique_id=393434897]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LblP2" type="Label" parent="Screens/ScreenProfiles/VBox/HBox/VBoxP2" unique_id=1620246747]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.6, 0.4, 1)
+text = "Jugador 2 (Flechas + Enter)"
+horizontal_alignment = 1
+
+[node name="EditP2" type="LineEdit" parent="Screens/ScreenProfiles/VBox/HBox/VBoxP2" unique_id=1196427829]
+layout_mode = 2
+text = "Jugador 2"
+placeholder_text = "Nombre J2"
+
+[node name="BtnHistP2" type="Button" parent="Screens/ScreenProfiles/VBox/HBox/VBoxP2" unique_id=1643713459]
+layout_mode = 2
+text = "Ver Historial P2"
+
+[node name="LblLoading" type="Label" parent="Screens/ScreenProfiles/VBox" unique_id=829481026]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.5, 1)
+text = "Cargando..."
+horizontal_alignment = 1
+
+[node name="BtnStart" type="Button" parent="Screens/ScreenProfiles/VBox" unique_id=220262782]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "INICIAR PARTIDA"
+
+[node name="BtnBack" type="Button" parent="Screens/ScreenProfiles/VBox" unique_id=1944602620]
+layout_mode = 2
+text = "Volver"
+
+[node name="ScreenLoading" type="Control" parent="Screens" unique_id=846861828]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="ColorRect" parent="Screens/ScreenLoading" unique_id=1194129020]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.05, 0.12, 1)
+
+[node name="LblLoading" type="Label" parent="Screens/ScreenLoading" unique_id=1393199336]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -20.0
+offset_right = 150.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "Cargando..."
+horizontal_alignment = 1
+
+[node name="ScreenGame" type="Control" parent="Screens" unique_id=2105801021]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4")
+
+[node name="BG" type="ColorRect" parent="Screens/ScreenGame" unique_id=1973701557]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.04, 0.07, 0.04, 1)
+
+[node name="VBox" type="VBoxContainer" parent="Screens/ScreenGame" unique_id=1373638445]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 5.0
+offset_right = -10.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopBar" type="HBoxContainer" parent="Screens/ScreenGame/VBox" unique_id=188265906]
+layout_mode = 2
+
+[node name="LblTurn" type="Label" parent="Screens/ScreenGame/VBox/TopBar" unique_id=447439914]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 0.5, 1)
+theme_override_font_sizes/font_size = 14
+text = "Turno 0"
+
+[node name="LblWeather" type="Label" parent="Screens/ScreenGame/VBox/TopBar" unique_id=759823356]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.6, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 11
+text = "Clima: ..."
+horizontal_alignment = 2
+
+[node name="TopArea" type="VBoxContainer" parent="Screens/ScreenGame/VBox" unique_id=1206255194]
+layout_mode = 2
+
+[node name="LblP2Name" type="Label" parent="Screens/ScreenGame/VBox/TopArea" unique_id=1780035713]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.6, 0.4, 1)
+theme_override_font_sizes/font_size = 14
+text = "Jugador 2"
+
+[node name="HBoxHP2" type="HBoxContainer" parent="Screens/ScreenGame/VBox/TopArea" unique_id=1809347100]
+layout_mode = 2
+
+[node name="LblP2Hp" type="Label" parent="Screens/ScreenGame/VBox/TopArea/HBoxHP2" unique_id=989808011]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "HP: 20 / 20"
+
+[node name="BarP2" type="ProgressBar" parent="Screens/ScreenGame/VBox/TopArea/HBoxHP2" unique_id=1932599324]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+
+[node name="HandP2" type="HBoxContainer" parent="Screens/ScreenGame/VBox/TopArea" unique_id=1145687823]
+custom_minimum_size = Vector2(0, 195)
+layout_mode = 2
+
+[node name="LblP2Status" type="Label" parent="Screens/ScreenGame/VBox/TopArea" unique_id=131917701]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.8, 1)
+theme_override_font_sizes/font_size = 11
+text = "Flechas + Enter"
+
+[node name="CombatZone" type="HBoxContainer" parent="Screens/ScreenGame/VBox" unique_id=923258075]
+layout_mode = 2
+alignment = 1
+
+[node name="RevealP1" type="PanelContainer" parent="Screens/ScreenGame/VBox/CombatZone" unique_id=1187531992]
+visible = false
+custom_minimum_size = Vector2(160, 100)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Screens/ScreenGame/VBox/CombatZone/RevealP1" unique_id=483353476]
+layout_mode = 2
+text = "..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LblVs" type="Label" parent="Screens/ScreenGame/VBox/CombatZone" unique_id=1821203343]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.3, 1)
+theme_override_font_sizes/font_size = 20
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RevealP2" type="PanelContainer" parent="Screens/ScreenGame/VBox/CombatZone" unique_id=1409605942]
+visible = false
+custom_minimum_size = Vector2(160, 100)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Screens/ScreenGame/VBox/CombatZone/RevealP2" unique_id=1012398671]
+layout_mode = 2
+text = "..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LblResult" type="Label" parent="Screens/ScreenGame/VBox" unique_id=488986709]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.5, 1)
+theme_override_font_sizes/font_size = 13
+horizontal_alignment = 1
+
+[node name="BottomArea" type="VBoxContainer" parent="Screens/ScreenGame/VBox" unique_id=1597929211]
+layout_mode = 2
+
+[node name="LblP1Status" type="Label" parent="Screens/ScreenGame/VBox/BottomArea" unique_id=1045576019]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.8, 1)
+theme_override_font_sizes/font_size = 11
+text = "A/D + F"
+
+[node name="HandP1" type="HBoxContainer" parent="Screens/ScreenGame/VBox/BottomArea" unique_id=1990192471]
+custom_minimum_size = Vector2(0, 195)
+layout_mode = 2
+
+[node name="HBoxHP1" type="HBoxContainer" parent="Screens/ScreenGame/VBox/BottomArea" unique_id=892767908]
+layout_mode = 2
+
+[node name="LblP1Hp" type="Label" parent="Screens/ScreenGame/VBox/BottomArea/HBoxHP1" unique_id=2017403903]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "HP: 20 / 20"
+
+[node name="BarP1" type="ProgressBar" parent="Screens/ScreenGame/VBox/BottomArea/HBoxHP1" unique_id=1555633557]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+
+[node name="LblP1Name" type="Label" parent="Screens/ScreenGame/VBox/BottomArea" unique_id=274286810]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.8, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "Jugador 1"
+horizontal_alignment = 2
+
+[node name="LblAutosave" type="Label" parent="Screens/ScreenGame" unique_id=207985585]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -200.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = 25.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.6, 1, 0.6, 1)
+theme_override_font_sizes/font_size = 11
+text = "Guardado automaticamente"
+horizontal_alignment = 2
+
+[node name="ScreenResult" type="Control" parent="Screens" unique_id=477664970]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScreenGameOver" type="Control" parent="Screens" unique_id=1422845005]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5")
+
+[node name="BG" type="ColorRect" parent="Screens/ScreenGameOver" unique_id=244225789]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.02, 0.08, 1)
+
+[node name="VBox" type="VBoxContainer" parent="Screens/ScreenGameOver" unique_id=620801065]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -150.0
+offset_right = 250.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="LblWinner" type="Label" parent="Screens/ScreenGameOver/VBox" unique_id=1062855463]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.1, 1)
+theme_override_font_sizes/font_size = 32
+text = "GANADOR: ..."
+horizontal_alignment = 1
+
+[node name="LblStats" type="Label" parent="Screens/ScreenGameOver/VBox" unique_id=1575101565]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.8, 0.9, 1)
+theme_override_font_sizes/font_size = 14
+text = "Stats..."
+horizontal_alignment = 1
+
+[node name="LblSaving" type="Label" parent="Screens/ScreenGameOver/VBox" unique_id=2051630007]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 1, 0.6, 1)
+theme_override_font_sizes/font_size = 12
+text = "Guardando..."
+horizontal_alignment = 1
+
+[node name="HBox" type="HBoxContainer" parent="Screens/ScreenGameOver/VBox" unique_id=1422275422]
+layout_mode = 2
+alignment = 1
+
+[node name="BtnRematch" type="Button" parent="Screens/ScreenGameOver/VBox/HBox" unique_id=669151581]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "REVANCHA"
+
+[node name="BtnLeaderboard" type="Button" parent="Screens/ScreenGameOver/VBox/HBox" unique_id=1943341935]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "TABLA"
+
+[node name="BtnMenu" type="Button" parent="Screens/ScreenGameOver/VBox/HBox" unique_id=1089501882]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "MENU"
+
+[node name="ScreenSettings" type="Control" parent="Screens" unique_id=634530304]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6")
+
+[node name="BG" type="ColorRect" parent="Screens/ScreenSettings" unique_id=904276458]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.05, 0.12, 1)
+
+[node name="VBox" type="VBoxContainer" parent="Screens/ScreenSettings" unique_id=315326010]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -220.0
+offset_right = 300.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LblTitle" type="Label" parent="Screens/ScreenSettings/VBox" unique_id=202256994]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8, 0.2, 1)
+theme_override_font_sizes/font_size = 22
+text = "CONFIGURACION"
+horizontal_alignment = 1
+
+[node name="LblMusic" type="Label" parent="Screens/ScreenSettings/VBox" unique_id=496769939]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "Volumen Musica"
+
+[node name="SliderMusic" type="HSlider" parent="Screens/ScreenSettings/VBox" unique_id=1423145902]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 0.8
+
+[node name="LblSFX" type="Label" parent="Screens/ScreenSettings/VBox" unique_id=1602390198]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "Volumen Efectos"
+
+[node name="SliderSFX" type="HSlider" parent="Screens/ScreenSettings/VBox" unique_id=509270589]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="LblAPIBase" type="Label" parent="Screens/ScreenSettings/VBox" unique_id=27865612]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "URL API Clima (GET)"
+
+[node name="EditAPIBase" type="LineEdit" parent="Screens/ScreenSettings/VBox" unique_id=824820704]
+layout_mode = 2
+text = "https://api.open-meteo.com/v1"
+
+[node name="LblAPIPost" type="Label" parent="Screens/ScreenSettings/VBox" unique_id=1430018519]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "URL API Resultados (POST)"
+
+[node name="EditAPIPost" type="LineEdit" parent="Screens/ScreenSettings/VBox" unique_id=1097062913]
+layout_mode = 2
+text = "https://httpbin.org/post"
+
+[node name="LblAutosaveInterval" type="Label" parent="Screens/ScreenSettings/VBox" unique_id=241089929]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "Intervalo autosave (segundos)"
+
+[node name="EditAutosave" type="LineEdit" parent="Screens/ScreenSettings/VBox" unique_id=1656738546]
+layout_mode = 2
+text = "30"
+
+[node name="LblSaved" type="Label" parent="Screens/ScreenSettings/VBox" unique_id=1695501528]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 1, 0.5, 1)
+text = "Configuracion guardada."
+horizontal_alignment = 1
+
+[node name="BtnSave" type="Button" parent="Screens/ScreenSettings/VBox" unique_id=1900177930]
+layout_mode = 2
+text = "GUARDAR"
+
+[node name="BtnBack" type="Button" parent="Screens/ScreenSettings/VBox" unique_id=1046308491]
+layout_mode = 2
+text = "Volver"
+
+[node name="ScreenLeaderboard" type="Control" parent="Screens" unique_id=233663466]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7")
+
+[node name="BG" type="ColorRect" parent="Screens/ScreenLeaderboard" unique_id=713509758]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.05, 0.12, 1)
+
+[node name="VBox" type="VBoxContainer" parent="Screens/ScreenLeaderboard" unique_id=425431632]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 20.0
+offset_right = -40.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LblTitle" type="Label" parent="Screens/ScreenLeaderboard/VBox" unique_id=1536412186]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8, 0.2, 1)
+theme_override_font_sizes/font_size = 26
+text = "TABLA DE LIDERES"
+horizontal_alignment = 1
+
+[node name="LblLoading" type="Label" parent="Screens/ScreenLeaderboard/VBox" unique_id=979154466]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.8, 0.5, 1)
+text = "Cargando..."
+horizontal_alignment = 1
+
+[node name="Scroll" type="ScrollContainer" parent="Screens/ScreenLeaderboard/VBox" unique_id=1485693775]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="List" type="VBoxContainer" parent="Screens/ScreenLeaderboard/VBox/Scroll" unique_id=907078110]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BtnBack" type="Button" parent="Screens/ScreenLeaderboard/VBox" unique_id=175741504]
+layout_mode = 2
+text = "Volver al Menu"
+
+[node name="ScreenHistory" type="Control" parent="Screens" unique_id=1377899093]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8")
+
+[node name="BG" type="ColorRect" parent="Screens/ScreenHistory" unique_id=535144526]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.05, 0.12, 1)
+
+[node name="VBox" type="VBoxContainer" parent="Screens/ScreenHistory" unique_id=649275688]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 20.0
+offset_right = -40.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LblTitle" type="Label" parent="Screens/ScreenHistory/VBox" unique_id=883425075]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8, 0.2, 1)
+theme_override_font_sizes/font_size = 22
+text = "Historial"
+horizontal_alignment = 1
+
+[node name="Scroll" type="ScrollContainer" parent="Screens/ScreenHistory/VBox" unique_id=1460746213]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="List" type="VBoxContainer" parent="Screens/ScreenHistory/VBox/Scroll" unique_id=2088290279]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BtnBack" type="Button" parent="Screens/ScreenHistory/VBox" unique_id=1845042876]
+layout_mode = 2
+text = "Volver"

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <rect width="128" height="128" rx="16" fill="#0D0D1F"/>
+  <text x="64" y="50" font-size="40" text-anchor="middle" fill="#F2A623">EC</text>
+  <text x="64" y="85" font-size="18" text-anchor="middle" fill="#7F77DD">ELEMENTAL</text>
+  <text x="64" y="108" font-size="14" text-anchor="middle" fill="#E8593C">CLASH</text>
+</svg>
