@@ -83,9 +83,6 @@ elemental_clash/
 ```
 
 ## Créditos
-- Desarrollo: [Nombre del equipo]
-- Materia: [Nombre de la materia]
-- Profesor: [Nombre del profesor]
 - API clima: [Open-Meteo](https://open-meteo.com/) (open source, sin API key)
 
 ## Notas sobre SQLite
