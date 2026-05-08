@@ -4,9 +4,9 @@ class_name CardNode
 signal card_clicked(card_data: CardData, player_owner: int)
 
 @onready var _label_name    : Label = $VBox/LabelName
-@onready var _label_element : Label = $VBox/LabelElement
 @onready var _label_atk     : Label = $VBox/LabelAtk
 @onready var _label_desc    : Label = $VBox/LabelDesc
+@onready var _texture : TextureRect = $TextureRect
 
 var card_data   : CardData = null
 var player_owner: int      = 1
@@ -21,13 +21,12 @@ func setup(data: CardData, owner_player: int, can_select: bool = true) -> void:
 func _refresh() -> void:
 	if card_data == null: return
 	_label_name.text    = card_data.card_name
-	_label_element.text = card_data.emoji + "  " + card_data.element_name()
 	_label_desc.text    = card_data.description
 
 	if card_data.is_special():
 		_label_atk.text = "ESPECIAL"
 	else:
-		_label_atk.text = "ATK: %d" % card_data.attack
+		_label_atk.text = "%d" % card_data.attack
 
 	var sb = StyleBoxFlat.new()
 	sb.bg_color        = card_data.color.darkened(0.5)
@@ -41,6 +40,18 @@ func _refresh() -> void:
 	sb.corner_radius_bottom_left  = 8
 	sb.corner_radius_bottom_right = 8
 	add_theme_stylebox_override("panel", sb)
+	
+	match card_data.element:
+		CardData.Element.FIRE:
+			_texture.texture = load("res://assets/cards/fire.png")
+		CardData.Element.WATER:
+			_texture.texture = load("res://assets/cards/water.png")
+		CardData.Element.EARTH:
+			_texture.texture = load("res://assets/cards/earth.png")
+		CardData.Element.LIGHTNING:
+			_texture.texture = load("res://assets/cards/lightning.png")
+		CardData.Element.SPECIAL:
+			_texture.texture = load("res://assets/cards/special.png")
 
 func set_selected(v: bool) -> void:
 	if v:

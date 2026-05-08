@@ -1,5 +1,4 @@
 res://scenes/Main.tscn
-res://README.md
-res://scripts/ConfigManager.gd
-res://scripts/ScreenProfiles.gd
-res://scripts/ScreenGame.gd
+res://scripts/ScreenLeaderboard.gd
+res://scenes/CardNode.tscn
+res://scripts/CardNode.gd
