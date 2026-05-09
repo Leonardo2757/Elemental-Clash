@@ -15,7 +15,7 @@ const ADVANTAGE = {
 	CardData.Element.LIGHTNING: { "beats": CardData.Element.WATER,  "loses": CardData.Element.EARTH },
 }
 const BONUS_DAMAGE  := 3
-const STARTING_HP   := 20
+const STARTING_HP   := 50
 const HAND_SIZE     := 5
 
 var state: GameState = GameState.MENU
