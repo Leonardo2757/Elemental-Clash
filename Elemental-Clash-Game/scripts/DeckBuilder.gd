@@ -27,6 +27,6 @@ static func build_deck() -> Array[CardData]:
 	# Special (3)
 	deck.append(CardData.create("Espejo",     CardData.Element.SPECIAL, 0, CardData.SpecialType.MIRROR, "Copia el elemento rival"))
 	deck.append(CardData.create("Escudo",     CardData.Element.SPECIAL, 0, CardData.SpecialType.SHIELD, "Bloquea todo el danio"))
-	deck.append(CardData.create("Caos",       CardData.Element.SPECIAL, 5, CardData.SpecialType.STORM,  "Inflige 5 de danio fijo"))
+	deck.append(CardData.create("Caos",       CardData.Element.SPECIAL, 10, CardData.SpecialType.STORM,  "Inflige 10 de danio fijo"))
 	deck.shuffle()
 	return deck

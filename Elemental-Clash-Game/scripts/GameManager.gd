@@ -143,21 +143,38 @@ func _calculate(c1: CardData, c2: CardData) -> Dictionary:
 	if c2.special_type == CardData.SpecialType.STORM: dmg2 = 5
 
 	# --- elemental advantage ---
-	var c1_bonus := 0
-	var c2_bonus := 0
-	if ADVANTAGE.has(c1_eff) and ADVANTAGE[c1_eff]["beats"] == c2_eff:
-		c1_bonus = BONUS_DAMAGE
-	if ADVANTAGE.has(c2_eff) and ADVANTAGE[c2_eff]["beats"] == c1_eff:
-		c2_bonus = BONUS_DAMAGE
+	# --- elemental advantage ---
+	var same_element = c1_eff == c2_eff
+
+	var final_dmg1: int
+	var final_dmg2: int
+
+	if same_element:
+		# Mismo elemento: daño reducido a la mitad para ambos
+		final_dmg1 = int(dmg1 * 0.5)
+		final_dmg2 = int(dmg2 * 0.5)
+	else:
+		# Ventaja elemental: 150% del daño al que gana
+		if ADVANTAGE.has(c1_eff) and ADVANTAGE[c1_eff]["beats"] == c2_eff:
+			final_dmg1 = int(dmg1 * 1.5)
+		else:
+			final_dmg1 = dmg1
+
+		if ADVANTAGE.has(c2_eff) and ADVANTAGE[c2_eff]["beats"] == c1_eff:
+			final_dmg2 = int(dmg2 * 1.5)
+		else:
+			final_dmg2 = dmg2
 
 	# --- weather bonus ---
 	var wb_str = CardData.Element.keys()[c1_eff] if CardData.Element.keys().size() > int(c1_eff) else ""
-	if wb_str == weather_bonus_element: c1_bonus += weather_bonus_dmg
+	if wb_str == weather_bonus_element: final_dmg1 += weather_bonus_dmg
 	wb_str = CardData.Element.keys()[c2_eff] if CardData.Element.keys().size() > int(c2_eff) else ""
-	if wb_str == weather_bonus_element: c2_bonus += weather_bonus_dmg
-
-	var final_dmg1 = dmg1 + c1_bonus
-	var final_dmg2 = dmg2 + c2_bonus
+	if wb_str == weather_bonus_element: final_dmg2 += weather_bonus_dmg
+	
+	if final_dmg1 > final_dmg2:
+		final_dmg2 = int(final_dmg2 * 0.5)
+	elif final_dmg2 > final_dmg1:
+		final_dmg1 = int(final_dmg1 * 0.5)
 
 	# --- apply shields ---
 	var dmg_to_p2 = 0 if p2_shielded else final_dmg1
@@ -175,8 +192,6 @@ func _calculate(c1: CardData, c2: CardData) -> Dictionary:
 		"dmg_p2_dealt": final_dmg2,
 		"dmg_to_p1":    dmg_to_p1,
 		"dmg_to_p2":    dmg_to_p2,
-		"c1_bonus":     c1_bonus,
-		"c2_bonus":     c2_bonus,
 		"p1_shielded":  p1_shielded,
 		"p2_shielded":  p2_shielded,
 		"round_winner": winner_player

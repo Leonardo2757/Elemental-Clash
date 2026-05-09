@@ -1,0 +1,3 @@
+res://scenes/Main.tscn
+res://scripts/GameManager.gd
+res://scripts/DeckBuilder.gd
