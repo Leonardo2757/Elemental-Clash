@@ -7,8 +7,18 @@
 [ext_resource type="Script" uid="uid://dyhyvrdjyec7q" path="res://scripts/ScreenGame.gd" id="4"]
 [ext_resource type="Script" uid="uid://c7y73vx1wf345" path="res://scripts/ScreenGameOver.gd" id="5"]
 [ext_resource type="Script" uid="uid://csf3pv3er1v1k" path="res://scripts/ScreenSettings.gd" id="6"]
+[ext_resource type="Texture2D" uid="uid://bs0mpgq6f4ksa" path="res://assets/d710967f-093f-44e4-8876-ed21f113eeea.png" id="6_lhr70"]
 [ext_resource type="Script" uid="uid://ck5c1x7q3d2hj" path="res://scripts/ScreenLeaderboard.gd" id="7"]
+[ext_resource type="Texture2D" uid="uid://3vr7nn0or0iw" path="res://assets/P1/1.png" id="7_qmy6f"]
 [ext_resource type="Script" uid="uid://cbhbtgpknrbxy" path="res://scripts/ScreenHistory.gd" id="8"]
+[ext_resource type="Texture2D" uid="uid://c1urac8s2c0dg" path="res://assets/P1/2.png" id="8_mwfav"]
+[ext_resource type="Texture2D" uid="uid://b2nseaqqo7l4f" path="res://assets/P1/3.png" id="9_3p2gp"]
+[ext_resource type="Texture2D" uid="uid://cpyosivsu15rc" path="res://assets/P1/4.png" id="10_1nqs0"]
+[ext_resource type="Texture2D" uid="uid://b0nc5m5hqbpx3" path="res://assets/P2/attack/1.png" id="10_nfivy"]
+[ext_resource type="Texture2D" uid="uid://o61nt2i4nvey" path="res://assets/P2/attack/2.png" id="11_1nqs0"]
+[ext_resource type="Texture2D" uid="uid://tbxjreh3qdgw" path="res://assets/P2/attack/3.png" id="12_1iba3"]
+[ext_resource type="Texture2D" uid="uid://dofjme7qk8un2" path="res://assets/P2/idle/1.png" id="13_nfivy"]
+[ext_resource type="AudioStream" uid="uid://brved88ujokot" path="res://assets/BGM.mp3" id="19_nfivy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qmy6f"]
 bg_color = Color(0, 0, 0, 0.4745098)
@@ -24,6 +34,59 @@ bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bjd11"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mwfav"]
+bg_color = Color(0.29411766, 0.7529412, 0, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cvmbd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_qmy6f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_mwfav")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_3p2gp")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_1nqs0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yxlcp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_nfivy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_1nqs0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_1iba3")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_nfivy")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [node name="Main" type="Node" unique_id=1529121202]
 script = ExtResource("1")
@@ -154,7 +217,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.05, 0.05, 0.12, 1)
+color = Color(0.44176564, 0.32324862, 0.15681729, 1)
 
 [node name="VBox" type="VBoxContainer" parent="Screens/ScreenProfiles" unique_id=1738999868]
 layout_mode = 1
@@ -173,7 +236,7 @@ alignment = 1
 
 [node name="LblTitle" type="Label" parent="Screens/ScreenProfiles/VBox" unique_id=784562716]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.8, 0.2, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 24
 text = "PERFILES DE JUGADOR"
 horizontal_alignment = 1
@@ -280,7 +343,6 @@ text = "Cargando..."
 horizontal_alignment = 1
 
 [node name="ScreenGame" type="Control" parent="Screens" unique_id=2105801021]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -289,26 +351,27 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4")
 
-[node name="BG" type="ColorRect" parent="Screens/ScreenGame" unique_id=1973701557]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.04, 0.07, 0.04, 1)
+[node name="TextureRect" type="TextureRect" parent="Screens/ScreenGame" unique_id=422751960]
+layout_mode = 0
+offset_right = 1672.0
+offset_bottom = 941.0
+scale = Vector2(0.775, 0.775)
+texture = ExtResource("6_lhr70")
+expand_mode = 1
+stretch_mode = 3
 
 [node name="VBox" type="VBoxContainer" parent="Screens/ScreenGame" unique_id=1373638445]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = 5.0
-offset_right = -10.0
-offset_bottom = -5.0
+offset_left = 100.135
+offset_top = 98.3
+offset_right = -551.175
+offset_bottom = 91.79999
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.795, 0.795)
 
 [node name="TopBar" type="HBoxContainer" parent="Screens/ScreenGame/VBox" unique_id=188265906]
 layout_mode = 2
@@ -349,10 +412,10 @@ text = "HP: 20 / 20"
 [node name="BarP2" type="ProgressBar" parent="Screens/ScreenGame/VBox/TopArea/HBoxHP2" unique_id=1932599324]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/fill = SubResource("StyleBoxFlat_mwfav")
 value = 100.0
 
 [node name="HandP2" type="HBoxContainer" parent="Screens/ScreenGame/VBox/TopArea" unique_id=1145687823]
-custom_minimum_size = Vector2(0, 195)
 layout_mode = 2
 
 [node name="LblP2Status" type="Label" parent="Screens/ScreenGame/VBox/TopArea" unique_id=131917701]
@@ -362,19 +425,15 @@ theme_override_font_sizes/font_size = 11
 text = "Flechas + Enter"
 
 [node name="CombatZone" type="HBoxContainer" parent="Screens/ScreenGame/VBox" unique_id=923258075]
+custom_minimum_size = Vector2(0, 454.185)
 layout_mode = 2
 alignment = 1
 
-[node name="RevealP1" type="PanelContainer" parent="Screens/ScreenGame/VBox/CombatZone" unique_id=1187531992]
-visible = false
-custom_minimum_size = Vector2(160, 100)
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Screens/ScreenGame/VBox/CombatZone/RevealP1" unique_id=483353476]
-layout_mode = 2
-text = "..."
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="SpriteP1" type="AnimatedSprite2D" parent="Screens/ScreenGame/VBox/CombatZone" unique_id=422279283]
+position = Vector2(406.929, 255.223)
+scale = Vector2(0.32, 0.32)
+sprite_frames = SubResource("SpriteFrames_cvmbd")
+animation = &"attack"
 
 [node name="LblVs" type="Label" parent="Screens/ScreenGame/VBox/CombatZone" unique_id=1821203343]
 custom_minimum_size = Vector2(60, 0)
@@ -385,16 +444,11 @@ text = "VS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RevealP2" type="PanelContainer" parent="Screens/ScreenGame/VBox/CombatZone" unique_id=1409605942]
-visible = false
-custom_minimum_size = Vector2(160, 100)
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Screens/ScreenGame/VBox/CombatZone/RevealP2" unique_id=1012398671]
-layout_mode = 2
-text = "..."
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="SpriteP2" type="AnimatedSprite2D" parent="Screens/ScreenGame/VBox/CombatZone" unique_id=601831683]
+position = Vector2(886.18, 248.785)
+scale = Vector2(0.33, 0.33)
+sprite_frames = SubResource("SpriteFrames_yxlcp")
+animation = &"idle"
 
 [node name="LblResult" type="Label" parent="Screens/ScreenGame/VBox" unique_id=488986709]
 layout_mode = 2
@@ -412,7 +466,6 @@ theme_override_font_sizes/font_size = 11
 text = "A/D + F"
 
 [node name="HandP1" type="HBoxContainer" parent="Screens/ScreenGame/VBox/BottomArea" unique_id=1990192471]
-custom_minimum_size = Vector2(0, 195)
 layout_mode = 2
 
 [node name="HBoxHP1" type="HBoxContainer" parent="Screens/ScreenGame/VBox/BottomArea" unique_id=892767908]
@@ -742,3 +795,6 @@ size_flags_horizontal = 3
 [node name="BtnBack" type="Button" parent="Screens/ScreenHistory/VBox" unique_id=1845042876]
 layout_mode = 2
 text = "Volver"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=279604324]
+stream = ExtResource("19_nfivy")

@@ -9,10 +9,13 @@ extends Node
 @onready var _screen_settings    : Control = $Screens/ScreenSettings
 @onready var _screen_leaderboard : Control = $Screens/ScreenLeaderboard
 @onready var _screen_history     : Control = $Screens/ScreenHistory
+@onready var _music_player : AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var _all_screens: Array[Control]
 
 func _ready() -> void:
+	if _music_player:
+		_music_player.play()
 	_all_screens = [
 		_screen_menu, _screen_profiles, _screen_loading,
 		_screen_game, _screen_result, _screen_gameover,

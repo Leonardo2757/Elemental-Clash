@@ -3,9 +3,10 @@
 [ext_resource type="Script" uid="uid://cx0h0afvmsfn0" path="res://scripts/CardNode.gd" id="1"]
 
 [node name="CardNode" type="PanelContainer" unique_id=1638369602]
-custom_minimum_size = Vector2(130, 180)
+custom_minimum_size = Vector2(81.795, 116.895)
 offset_right = 130.0
 offset_bottom = 180.0
+scale = Vector2(0.655, 0.655)
 script = ExtResource("1")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1068805891]
@@ -13,6 +14,7 @@ layout_mode = 2
 expand_mode = 1
 
 [node name="VBox" type="VBoxContainer" parent="." unique_id=1147469402]
+custom_minimum_size = Vector2(0.045, 0)
 layout_mode = 2
 
 [node name="LabelName" type="Label" parent="VBox" unique_id=172854959]

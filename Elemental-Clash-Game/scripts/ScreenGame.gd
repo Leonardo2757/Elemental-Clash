@@ -11,9 +11,9 @@ extends Control
 
 @onready var _combat_zone   : HBoxContainer = $VBox/CombatZone
 @onready var _lbl_vs        : Label     = $VBox/CombatZone/LblVs
-@onready var _reveal_p1     : PanelContainer = $VBox/CombatZone/RevealP1
-@onready var _reveal_p2     : PanelContainer = $VBox/CombatZone/RevealP2
 @onready var _lbl_result    : Label     = $VBox/LblResult
+@onready var _sprite_p1 : AnimatedSprite2D = $VBox/CombatZone/SpriteP1
+@onready var _sprite_p2 : AnimatedSprite2D = $VBox/CombatZone/SpriteP2
 
 @onready var _lbl_p1_name   : Label     = $VBox/BottomArea/LblP1Name
 @onready var _bar_p1        : ProgressBar = $VBox/BottomArea/HBoxHP1/BarP1
@@ -35,13 +35,20 @@ func _ready() -> void:
 	GameManager.state_changed.connect(_on_state)
 	SaveManager.autosave_done.connect(_on_autosave)
 	_lbl_autosave.visible = false
-	_reveal_p1.hide(); _reveal_p2.hide()
 	_lbl_result.text = ""
+	_start_idle_animation()
+
+func _start_idle_animation() -> void:
+	# Inicia la animación idle en ambos personajes
+	if _sprite_p1:
+		_sprite_p1.play("idle")
+	
+	if _sprite_p2:
+		_sprite_p2.play("idle")
 
 func _on_state(s: GameManager.GameState) -> void:
 	if s == GameManager.GameState.SELECTING:
 		_refresh_ui()
-		_reveal_p1.hide(); _reveal_p2.hide()
 		_lbl_result.text = ""
 	elif s == GameManager.GameState.REVEALING:
 		_show_reveals()
@@ -100,12 +107,15 @@ func _on_card_clicked(card: CardData, player: int) -> void:
 		AudioManager.play_sfx_confirm()
 
 func _show_reveals() -> void:
-	if GameManager.p1_selected:
-		_setup_reveal(_reveal_p1, GameManager.p1_selected)
-		_reveal_p1.show()
-	if GameManager.p2_selected:
-		_setup_reveal(_reveal_p2, GameManager.p2_selected)
-		_reveal_p2.show()
+
+	# Animación de ataque
+	_sprite_p1.play("attack")
+	_sprite_p2.play("attack")
+
+	# Al terminar la animación vuelve a idle
+	await _sprite_p1.animation_finished
+	_sprite_p1.play("idle")
+	_sprite_p2.play("idle")
 
 func _setup_reveal(panel: PanelContainer, card: CardData) -> void:
 	var sb = StyleBoxFlat.new()
