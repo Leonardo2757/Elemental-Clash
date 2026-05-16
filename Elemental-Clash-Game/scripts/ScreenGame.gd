@@ -107,7 +107,22 @@ func _on_card_clicked(card: CardData, player: int) -> void:
 		AudioManager.play_sfx_confirm()
 
 func _show_reveals() -> void:
+	if GameManager.p1_selected and GameManager.p1_selected.is_special():
+		AudioManager.play_special()
+	elif GameManager.p1_selected:
+		AudioManager.play_magic()
 
+	if GameManager.p2_selected and GameManager.p2_selected.is_special():
+		AudioManager.play_special()
+	elif GameManager.p2_selected:
+		AudioManager.play_magic()
+
+	var dmg1 = GameManager.p1_selected.attack if GameManager.p1_selected else 0
+	var dmg2 = GameManager.p2_selected.attack if GameManager.p2_selected else 0
+	if dmg1 > dmg2:
+		AudioManager.play_win_male()
+	elif dmg2 > dmg1:
+		AudioManager.play_win_female()
 	# Animación de ataque
 	_sprite_p1.play("attack")
 	_sprite_p2.play("attack")
