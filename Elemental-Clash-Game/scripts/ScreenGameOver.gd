@@ -4,36 +4,44 @@ extends Control
 @onready var _lbl_stats     : Label  = $VBox/LblStats
 @onready var _lbl_saving    : Label  = $VBox/LblSaving
 @onready var _btn_rematch   : Button = $VBox/HBox/BtnRematch
+@onready var _btn_names     : Button = $VBox/HBox/BtnNames
 @onready var _btn_menu      : Button = $VBox/HBox/BtnMenu
 @onready var _btn_leaders   : Button = $VBox/HBox/BtnLeaderboard
 
 func _ready() -> void:
 	GameManager.game_over.connect(_on_game_over)
 	_btn_rematch.pressed.connect(_on_rematch)
+	_btn_names.pressed.connect(_on_change_names)
 	_btn_menu.pressed.connect(_on_menu)
 	_btn_leaders.pressed.connect(_on_leaders)
 	APIManager.post_done.connect(_on_post_done)
 	_lbl_saving.visible = false
 
 func _on_game_over(winner: String, loser: String) -> void:
-	_lbl_winner.text = "GANADOR: " + winner
-	_lbl_stats.text  = "Turnos jugados: %d\n%s HP: %d  |  %s HP: %d" % [
+	_lbl_winner.text = "GANADOR:  " + winner
+	var p1 = GameManager.p1_name
+	var p2 = GameManager.p2_name
+	_lbl_stats.text = "Turnos jugados: %d\n%s — HP final: %d\n%s — HP final: %d" % [
 		GameManager.turn,
-		GameManager.p1_name, GameManager.p1_hp,
-		GameManager.p2_name, GameManager.p2_hp
+		p1, GameManager.p1_hp,
+		p2, GameManager.p2_hp
 	]
 	_lbl_saving.visible = true
 	_lbl_saving.text    = "Guardando resultados..."
 	AudioManager.play_sfx_win()
 
 func _on_post_done(_success: bool) -> void:
-	_lbl_saving.text    = "Resultados sincronizados."
+	_lbl_saving.text = "Resultados sincronizados."
 	await get_tree().create_timer(1.5).timeout
 	_lbl_saving.visible = false
 
 func _on_rematch() -> void:
 	AudioManager.play_sfx_confirm()
 	GameManager.start_game(GameManager.p1_name, GameManager.p2_name)
+
+func _on_change_names() -> void:
+	AudioManager.play_sfx_confirm()
+	GameManager._set_state(GameManager.GameState.PROFILES)
 
 func _on_menu() -> void:
 	AudioManager.play_sfx_confirm()

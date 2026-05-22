@@ -13,14 +13,16 @@ func _ready() -> void:
 	_btn_save.pressed.connect(_on_save)
 	_btn_back.pressed.connect(_on_back)
 	_lbl_saved.visible = false
+	GameManager.state_changed.connect(_on_state_changed)
+	
 
-func _on_visibility_changed() -> void:
-	if visible:
-		_slider_music.value   = ConfigManager.music_volume
-		_slider_sfx.value     = ConfigManager.sfx_volume
-		_edit_api_base.text   = ConfigManager.api_base_url
-		_edit_api_post.text   = ConfigManager.post_api_url
-		_edit_autosave.text   = str(ConfigManager.autosave_interval)
+func _on_state_changed(s: GameManager.GameState) -> void:
+	if s == GameManager.GameState.SETTINGS:
+		_slider_music.value    = ConfigManager.music_volume
+		_slider_sfx.value      = ConfigManager.sfx_volume
+		_edit_api_base.text    = ConfigManager.api_base_url
+		_edit_api_post.text    = ConfigManager.post_api_url
+		_edit_autosave.text    = str(ConfigManager.autosave_interval)
 
 func _on_save() -> void:
 	ConfigManager.set_music_volume(_slider_music.value)

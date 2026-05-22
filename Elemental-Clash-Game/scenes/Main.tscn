@@ -6,10 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://bvrt8m5nkiq26" path="res://assets/78ff5102-d7f8-4e3a-902d-2f22edc9d1fc.png" id="3_q8u5g"]
 [ext_resource type="Script" uid="uid://dyhyvrdjyec7q" path="res://scripts/ScreenGame.gd" id="4"]
 [ext_resource type="Script" uid="uid://c7y73vx1wf345" path="res://scripts/ScreenGameOver.gd" id="5"]
+[ext_resource type="Texture2D" uid="uid://txynxygq58c0" path="res://assets/profileBG.png" id="5_1nqs0"]
 [ext_resource type="Script" uid="uid://csf3pv3er1v1k" path="res://scripts/ScreenSettings.gd" id="6"]
+[ext_resource type="Texture2D" uid="uid://byyb74qh3c802" path="res://assets/profileBG2.png" id="6_1iba3"]
 [ext_resource type="Texture2D" uid="uid://bs0mpgq6f4ksa" path="res://assets/d710967f-093f-44e4-8876-ed21f113eeea.png" id="6_lhr70"]
 [ext_resource type="Script" uid="uid://ck5c1x7q3d2hj" path="res://scripts/ScreenLeaderboard.gd" id="7"]
 [ext_resource type="Texture2D" uid="uid://3vr7nn0or0iw" path="res://assets/P1/1.png" id="7_qmy6f"]
+[ext_resource type="Texture2D" uid="uid://f8gy0urrqhq1" path="res://assets/profileBG3.png" id="7_yxlcp"]
 [ext_resource type="Script" uid="uid://cbhbtgpknrbxy" path="res://scripts/ScreenHistory.gd" id="8"]
 [ext_resource type="Texture2D" uid="uid://c1urac8s2c0dg" path="res://assets/P1/2.png" id="8_mwfav"]
 [ext_resource type="Texture2D" uid="uid://b2nseaqqo7l4f" path="res://assets/P1/3.png" id="9_3p2gp"]
@@ -34,6 +37,23 @@ bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bjd11"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1nqs0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_1nqs0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1iba3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_yxlcp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mwfav"]
 bg_color = Color(0.29411766, 0.7529412, 0, 1)
@@ -210,14 +230,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3")
 
-[node name="BG" type="ColorRect" parent="Screens/ScreenProfiles" unique_id=322189242]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.44176564, 0.32324862, 0.15681729, 1)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Screens/ScreenProfiles" unique_id=273102107]
+position = Vector2(659.945, 350.79)
+scale = Vector2(0.79, 0.79)
+sprite_frames = SubResource("SpriteFrames_1nqs0")
+frame_progress = 0.7035532
+speed_scale = 0.435
 
 [node name="VBox" type="VBoxContainer" parent="Screens/ScreenProfiles" unique_id=1738999868]
 layout_mode = 1
@@ -351,6 +369,26 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4")
 
+[node name="FocusBanner" type="TextureRect" parent="Screens/ScreenGame" unique_id=2112008027]
+z_index = 1
+layout_mode = 0
+offset_left = 178.4
+offset_top = 302.305
+offset_right = 218.4004
+offset_bottom = 342.305
+rotation = -0.29670596
+scale = Vector2(0.48, 0.48)
+
+[node name="FocusSprite" type="TextureRect" parent="Screens/ScreenGame" unique_id=1175999721]
+z_index = 2
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 0
+offset_left = -351.905
+offset_top = -3.625
+offset_right = -51.905
+offset_bottom = 396.37518
+mouse_filter = 2
+
 [node name="TextureRect" type="TextureRect" parent="Screens/ScreenGame" unique_id=422751960]
 layout_mode = 0
 offset_right = 1672.0
@@ -365,9 +403,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 100.135
+offset_left = 407.03
 offset_top = 98.3
-offset_right = -551.175
+offset_right = -244.28003
 offset_bottom = 91.79999
 grow_horizontal = 2
 grow_vertical = 2
@@ -430,7 +468,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="SpriteP1" type="AnimatedSprite2D" parent="Screens/ScreenGame/VBox/CombatZone" unique_id=422279283]
-position = Vector2(406.929, 255.223)
+position = Vector2(-143.921, 248.188)
 scale = Vector2(0.32, 0.32)
 sprite_frames = SubResource("SpriteFrames_cvmbd")
 animation = &"attack"
@@ -445,7 +483,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="SpriteP2" type="AnimatedSprite2D" parent="Screens/ScreenGame/VBox/CombatZone" unique_id=601831683]
-position = Vector2(886.18, 248.785)
+position = Vector2(703.905, 248.785)
 scale = Vector2(0.33, 0.33)
 sprite_frames = SubResource("SpriteFrames_yxlcp")
 animation = &"idle"
@@ -586,6 +624,9 @@ text = "TABLA"
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "MENU"
+
+[node name="BtnNames" type="Button" parent="Screens/ScreenGameOver/VBox/HBox" unique_id=135288891]
+layout_mode = 2
 
 [node name="ScreenSettings" type="Control" parent="Screens" unique_id=634530304]
 visible = false
@@ -798,3 +839,4 @@ text = "Volver"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=279604324]
 stream = ExtResource("19_nfivy")
+bus = &"Music"
